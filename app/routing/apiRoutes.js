@@ -7,18 +7,18 @@ module.exports = function(app){
     });
 
     app.post("/api/friends", function (req, res){
-        const totalDifference = 0;
+        let totalDifference = 0;
         const goodMatch = {
             name: "",
             photo: "",
             friendDif: 100
         };
 
-        const userInput = req.body;
-        const userName = userInput.name;
-        const userScore = userInput.score;
+        let userInput = req.body;
+        let userName = userInput.name;
+        let userScore = userInput.scores;
 
-        const scoreNum = userScore.map(function(number){
+        let scoreNum = userScore.map(function(number){
             return parseInt(number,10);
         });
 
@@ -35,15 +35,15 @@ module.exports = function(app){
             const otherFriendScore = friends[i].scores.reduce ((a, b) => a + b, 0);
             totalDifference += Math.abs (sum - otherFriendScore);
 
-            if (totalDifference <= bestMatch.friendDif){
-                bestMatch.name = friends[i].name;
-                bestMatch.photo = friends[i].photo;
-                bestMatch.friendDif = totalDifference;
+            if (totalDifference <= goodMatch.friendDif){
+                goodMatch.name = friends[i].name;
+                goodMatch.photo = friends[i].photo;
+                goodMatch.friendDif = totalDifference;
             }
         }
 
         friends.push(userInput);
-        res.json(bestMatch);
+        res.json(goodMatch);
 
     });
 
