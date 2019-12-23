@@ -1,0 +1,23 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "Find friends online like you!",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edenhack/friendFinder.git"
+  },
+  "author": "edenhack",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edenhack/friendFinder/issues"
+  },
+  "homepage": "https://github.com/edenhack/friendFinder#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
